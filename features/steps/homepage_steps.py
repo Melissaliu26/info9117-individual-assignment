@@ -1,7 +1,8 @@
 from behave import given, when, then, use_step_matcher
 from hamcrest import assert_that, equal_to
 import re
-from login_utils import *
+from login_utils import login
+import time
 
 @given(u'a user visits the site')
 def visit(ctx):
@@ -28,6 +29,7 @@ def see_login(ctx):
 @when(u'she logs in')
 def logs_in(ctx):
     login(ctx)
+    time.sleep(2)
 
 @when(u'she returns to the site')
 def return_visit(ctx):
